@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
 
-  private clientUrl= 'https://git.heroku.com/green-swift-api.git';  // URL to REST API
+  private clientUrl= 'https://green-swift-api.herokuapp.com';  // URL to REST API
 
   constructor(private http: HttpClient,private router:Router) { }
 

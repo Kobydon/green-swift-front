@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start" : "node server.js",
+    "start": "node server.js",
     "build": "ng build --base-href ./",
     "build:prod": "ng build --prod --base-href ./",
     "build:ci": "ng build --prod --base-href ./",
@@ -12,7 +12,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build — prod"
- 
   },
   "private": true,
   "dependencies": {
@@ -26,8 +25,8 @@
     "@angular/platform-browser-dynamic": "^7.2.10",
     "@angular/router": "^7.2.10",
     "angular-froala-wysiwyg": "^2.9.3",
-    "express":"^4.17.1",
-    "path":"^0.12.7",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
@@ -82,6 +81,10 @@
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
   },
-  "engines": { "node": "7.0.0", "npm": "6.14.15" }
- 
+  "engines": {
+    "node": "7.0.0",
+    "npm": "6.14.15"
+  }
+
+
 }

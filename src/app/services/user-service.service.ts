@@ -21,7 +21,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class userService {
 
-  private userUrl = 'https://git.heroku.com/green-swift-api.git';  // URL to REST API
+  private userUrl = 'https://green-swift-api.herokuapp.com';  // URL to REST API
    
  
   isUserLoggedIn: boolean = false;
