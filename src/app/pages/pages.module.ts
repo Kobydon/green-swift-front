@@ -14,7 +14,7 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { AddGuestComponent } from './guests/add-guest/add-guest.component';
 import { ViewGuestComponent } from './guests/view-guest/view-guest.component';
 import { EmployeesListComponent } from './employees/employees-list/employees-list.component';
-import { AddEmployeesComponent } from './employees/add-employees/add-employees.component';
+
 import { PaymentListComponent } from './payments/payment-list/payment-list.component';
 import { AddPaymentsComponent } from './payments/add-payments/add-payments.component';
 import { GuestsComponent } from './guests/guests.component';
@@ -30,6 +30,11 @@ import { HouseKeepingListComponent } from './house-keeping-list/house-keeping-li
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditGuestComponent } from '../guest/edit-guest/edit-guest.component';
+import { SendMoneyComponent } from './send-money/send-money.component';
+import { WithdrawMoneyComponent } from './withdraw-money/withdraw-money.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import { UsersComponent } from './users/users.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 // import { GuestLayoutComponent } from './guests/guest-layout/guest-layout.component';
@@ -43,13 +48,14 @@ import { EditGuestComponent } from '../guest/edit-guest/edit-guest.component';
         FormsModule,
        
         ReactiveFormsModule,
+        BrowserAnimationsModule,
        
         routing
     ],
     declarations: [
         PagesComponent,
      
-        AddEmployeesComponent,TodoListComponent,AddTodoComponent,EditTodoComponent,
+      TodoListComponent,AddTodoComponent,EditTodoComponent,
         EmployeesListComponent,
         PaymentListComponent,
         AddPaymentsComponent,
@@ -63,7 +69,11 @@ import { EditGuestComponent } from '../guest/edit-guest/edit-guest.component';
         RoomTypeComponent,
         GroupReservationComponent,
         HouseKeepingListComponent,
-        EditGuestComponent
+        EditGuestComponent,
+        SendMoneyComponent,
+        WithdrawMoneyComponent,
+        NewUserComponent,
+        UsersComponent
 
     ]
 })

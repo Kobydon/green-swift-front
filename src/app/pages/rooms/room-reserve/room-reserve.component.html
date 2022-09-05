@@ -15,13 +15,13 @@
     <label for="name" >Guest Name <button class="btn btn-info">
       <i class="fa fa-plus" routerLink="/pages/add-guest"></i> </button>
     </label>
-    <tr  *ngFor="let guest of guestList">
+ 
       <select formControlName="name" id="" >
         <option value="" hidden selected>select a guest</option>
         <!-- <option  value="{{guest.name +' '+ guest.lastname}}"
      >{{guest.name +" "+ guest.lastname}}</option> -->
       </select>
-    </tr>  
+ 
   </div>
 </div>
 

@@ -5,7 +5,7 @@ import { FormControlName } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { userService } from '../../services/user-service.service';
-
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   id?:string|null;
   isUserLoggedIn = false;
   constructor(private fb:FormBuilder,private route:ActivatedRoute, private router:Router,
-    private location:Location,private userService:userService) {
+    private location:Location,private userService:userService,private toastr:ToastrService) {
 
     this.createForm = this.fb.group({
 
@@ -75,9 +75,13 @@ export class LoginComponent implements OnInit {
     }
     //this.loading=true;
     // ad.image= this.base64_string
+    try{
     this.userService.loginUser(user,user.username,user.password)
     
-  
+  }
+  catch(error){
+    this.toastr.error(null, error);
+  }
 
 
 

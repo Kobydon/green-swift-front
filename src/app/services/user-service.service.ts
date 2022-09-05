@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -20,7 +21,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class userService {
 
-  private userUrl = 'http://127.0.0.1:5000';  // URL to REST API
+  private userUrl = 'https://git.heroku.com/green-swift-api.git';  // URL to REST API
    
  
   isUserLoggedIn: boolean = false;

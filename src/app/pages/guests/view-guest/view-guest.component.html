@@ -2,9 +2,11 @@
   
   <div class="col-md-8">
     <card cardTitle='Guest details' isCollapse="true">
-     <button style="float: right;" class="btn btn-warning"> <i class="fa fa-calendar" >Checkout</i></button>
-    
       <tr *ngFor="let item of guestList">
+     <button  *ngIf="item.has_checkout<1"
+     style="float: right;" class="btn btn-warning" (click)="checkout()"> <i class="fa fa-calendar" >Checkout</i></button>
+    
+     
        
            <Label>Name:</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;
            <strong> {{item.firstname +"  "+  item.lastname}}</strong>

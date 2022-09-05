@@ -29,9 +29,9 @@ import { Observable } from 'rxjs';
 
 export class PagesComponent {
 
-//   prepareRoute(outlet:RouterOutlet){
-//     return outlet.activatedRoute.snapshot.url
-//  }
+  prepareRoute(outlet:RouterOutlet){
+    return outlet.activatedRoute.snapshot.url
+ }
 
 constructor(private router :Router){}
 isCardNeeded = true ;

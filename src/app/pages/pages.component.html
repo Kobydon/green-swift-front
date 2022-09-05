@@ -14,7 +14,12 @@
       </div>
  
 
+      <div [@routeAnim]="prepareRoute(outlet)" class="content-section">
+
+
         <router-outlet #outlet = "outlet"></router-outlet>
+        </div>
+    
         
       <notification></notification>
     </div>

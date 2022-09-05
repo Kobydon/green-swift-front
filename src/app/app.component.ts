@@ -22,20 +22,22 @@ import {
 
   
     animations: [
-      // trigger('routeAnim', [
-      //   transition('* <=> *', [    
-      //     query(':enter, :leave', style({ position: 'fixed', width:'100%' })),
-      //     group([ 
-      //       query(':enter', [
-      //         style({ transform: 'translateX(100%)' }),
-      //         animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
-      //       ]),
-      //       query(':leave', [
-      //         style({ transform: 'translateX(0%)' }),
-      //         animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))]),
-      //     ])
-      //   ])
-      // ])
+      trigger('routeAnim', [
+        transition('* <=> *', [    
+          query(':enter, :leave', style({ position: 'fixed', width:'100%' })),
+
+
+          group([ 
+            query(':enter', [
+              style({ transform: 'translateX(100%)' }),
+              animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
+            ]),
+            query(':leave', [
+              style({ transform: 'translateX(0%)' }),
+              animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))]),
+          ])
+        ])
+      ])
      ],
   })
 export class AppComponent {
@@ -43,9 +45,7 @@ export class AppComponent {
 
   isUserLoggedIn = false;
   checking = false;
-    prepareRoute(outlet:RouterOutlet){
-      return outlet.activatedRoute.snapshot.url
-    }
+  
     ngOnInit() {
       let storeData = localStorage.getItem("isUserLoggedIn");
       console.log("StoreData: " + storeData);
@@ -67,4 +67,7 @@ export class AppComponent {
 
          this.checking = false;
    }
+   prepareRoute(outlet:RouterOutlet){
+    return outlet.activatedRoute.snapshot.url
+  }
 }

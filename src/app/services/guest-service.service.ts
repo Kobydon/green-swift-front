@@ -73,6 +73,9 @@ getcheckOut(): Observable<any[]>{
    
   }
 
+
+
+
   addGuest(guest:any) {
     //console.log(guest);
       return this.http.post(this.guestUrl + '/guest/add_guest', guest, httpOptions);
@@ -113,4 +116,7 @@ getcheckOut(): Observable<any[]>{
 	  return of({});
   }
   
+  checkout(guest: any): Observable<any> {
+    return this.http.put(this.guestUrl + '/guest/checkout', guest, httpOptions)
+  }
 }

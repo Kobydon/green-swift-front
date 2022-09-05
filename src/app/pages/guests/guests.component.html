@@ -29,8 +29,11 @@
     
     <td>{{item.checkout_date}} <i class="fa fa-arrow-right" style="color: lightgreen;">check out</i></td>
 
-    <td *ngIf="item.has_checkout>0">{{item.has_checkout}}</td>
-    <td *ngIf="item.has_checkout<1">Not Yet</td>    <td><i  routerLink="/pages/edit-guest/{{item.id}}" class="fa fa-edit text-info"></i><i class="fa fa-trash text-danger" (click)
+    <td *ngIf="item.has_checkout !=0">{{item.has_checkout}} <i  routerLink="/pages/edit-guest/{{item.id}}" class="fa fa-edit text-info"></i><i class="fa fa-trash text-danger" (click)
+      ="deleteGuest(item.id)"></i> 
+      
+      <a routerLink="/pages/view-details/{{item.id}}" class="btn btn-info ">View</a></td>
+    <td *ngIf="item.has_checkout<1">Not Yet  <i  routerLink="/pages/edit-guest/{{item.id}}" class="fa fa-edit text-info"></i><i class="fa fa-trash text-danger" (click)
       ="deleteGuest(item.id)"></i> 
       <a routerLink="/pages/view-details/{{item.id}}" class="btn btn-info ">View</a></td>
   </tr>

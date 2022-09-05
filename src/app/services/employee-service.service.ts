@@ -15,27 +15,40 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
 
-  private employeeUrl = 'http://127.0.0.1:5000';  // URL to REST API
+  private clientUrl= 'https://git.heroku.com/green-swift-api.git';  // URL to REST API
 
   constructor(private http: HttpClient,private router:Router) { }
 
   /** GET users from the server */
   getroomType(): Observable<any[]> {
-    return this.http.get<any[]>(this.employeeUrl + '/room/get_room_type');
+    return this.http.get<any[]>(this.clientUrl+ '/room/get_room_types');
   }
 
+  getInfo(): Observable<any[]> {
+    return this.http.get<any[]>(this.clientUrl+ '/client/get_info');
+  }
+
+getUserInfo(): Observable<any[]> {
+    return this.http.get<any[]>(this.clientUrl+ '/client/get_user_info');
+  }
 getemployees():Observable<any[]>{
-   return this.http.get<any[]>(this.employeeUrl + '/employee/get_employees');
+   return this.http.get<any[]>(this.clientUrl+ '/employee/get_employees');
 }
 
+
+getclients():Observable<any[]>{
+  return this.http.get<any[]>(this.clientUrl+ '/client/get_clients');
+}
+
+
 getroom_number():Observable<any[]>{
-  return this.http.get<any[]>(this.employeeUrl + '/room/get_room_number');
+  return this.http.get<any[]>(this.clientUrl+ '/room/get_room_number');
 }
 
   
   /** GET user by id. Will 404 if id not found */
   getEmployee(id: number): Observable<any> {
-    const url = `${this.employeeUrl}/users/${id}`;
+    const url = `${this.clientUrl}/users/${id}`;
     return this.http.get<any>(url);
   }
   
@@ -43,24 +56,24 @@ getroom_number():Observable<any[]>{
  
   postroom_type(ad:any) {
     //console.log(user);
-      return this.http.post(this.employeeUrl + '/room/add_room_type', ad, httpOptions);
+      return this.http.post(this.clientUrl+ '/room/add_room_type', ad, httpOptions);
     }
 
  
-    postemployee(ad:any) {
+    postclient(ad:any) {
       //console.log(user);
-        return this.http.post(this.employeeUrl + '/employee/add', ad, httpOptions);
+        return this.http.post(this.clientUrl+ '/client/add', ad, httpOptions);
       }
   /** PUT: update the user on the server */
   updateEmployee(user: any): Observable<any> {
-    return this.http.put(this.employeeUrl + '/update', user, httpOptions);
+    return this.http.put(this.clientUrl+ '/update', user, httpOptions);
   }
   
   /** DELETE: delete the user from the server */
   deleteEmployee(user: any | number) {
 	  if (confirm("Are you sure to delete?")) {
 		const id = typeof user === 'number' ? user : user.id;
-		const url = `${this.employeeUrl}/delete/${id}`;
+		const url = `${this.clientUrl}/delete/${id}`;
 		return this.http.delete(url, httpOptions);
 	  }
 	  return of({});

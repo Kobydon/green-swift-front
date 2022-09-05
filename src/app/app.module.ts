@@ -23,6 +23,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { EditGuestComponent } from './guest/edit-guest/edit-guest.component';
+import { BlankLayoutComponent } from './login/blank-layout/blank-layout.component';
+import { DaboardLayoutComponent } from './dashboard/daboard-layout/daboard-layout.component';
 // import { SettingsLayoutComponent } from './settings/settings-layout/settings-layout.component';
 
 
@@ -70,6 +72,8 @@ import { EditGuestComponent } from './guest/edit-guest/edit-guest.component';
   declarations: [
     AppComponent,
     SettingsComponent,
+    BlankLayoutComponent,
+    DaboardLayoutComponent,
 
   
 

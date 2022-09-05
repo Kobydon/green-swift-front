@@ -10,9 +10,9 @@ import { GlobalService } from '../../services/global.service';
   styleUrls: ['./pages-top.component.scss'],
 })
 export class PagesTopComponent implements AfterViewInit {
-  avatarImgSrc: string = 'assets/images/avatar.jpg';
+  avatarImgSrc: string = 'assets/images/swiss.jpg';
   userName: string = 'kevin';
-  userPost: string = 'Kevs Hotel Managent';
+  userPost: string = 'Green Swiss Bank';
 
 
   sidebarToggle: boolean = true;

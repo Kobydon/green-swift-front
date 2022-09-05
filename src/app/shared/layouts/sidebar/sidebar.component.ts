@@ -2,6 +2,7 @@ import {Component, Input, Output, EventEmitter, OnInit, HostListener, AfterViewI
 import {menuService} from '../../services/menu.service';
 import {GlobalService} from '../../services/global.service';
 import { ConditionalExpr } from '@angular/compiler';
+import { EmployeeService } from '../../../services/employee-service.service';
 
 
 @Component({
@@ -12,12 +13,12 @@ import { ConditionalExpr } from '@angular/compiler';
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
 
-
+infoList:any;
   public menuInfo: Array<any> = [];
   public sidebarToggle = true;
 
   constructor(private _menuService: menuService,
-              public _globalService: GlobalService) {
+              public _globalService: GlobalService, private userService:EmployeeService) {
   }
 
 
@@ -26,6 +27,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   
   
   ngOnInit() {
+    this.getUserInfo();
     this.menuInfo = this._menuService.putSidebarJson();
     this._sidebarToggle();
     this._menuService.selectItem(this.menuInfo); /* ----->初始化判断路由isActive状态  未完成  待优化 */
@@ -93,5 +95,19 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.sidebarToggle = window.innerWidth >= 970;
     console.log(window.innerWidth);
+  }
+
+  
+  getUserInfo(){
+    this.userService.getUserInfo().subscribe((res:any)=>{
+      this.infoList=res;
+      this.infoList.forEach((a:any)=>{
+        Object.assign(a,{role:a.roles
+         })
+      })
+  
+  
+
+    })
   }
 }

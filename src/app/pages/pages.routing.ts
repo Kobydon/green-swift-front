@@ -2,7 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { LoginComponent } from './login/login.component';
 import { EmployeesListComponent } from './employees/employees-list/employees-list.component';
-import { AddEmployeesComponent } from './employees/add-employees/add-employees.component';
+// import { AddEmployeesComponent } from './employees/add-employees/add-employees.component';
 import { PaymentListComponent } from './payments/payment-list/payment-list.component';
 import { AddPaymentsComponent } from './payments/add-payments/add-payments.component';
 import { GuestsComponent } from './guests/guests.component';
@@ -18,12 +18,16 @@ import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { AddTodoComponent } from './todo/add-todo/add-todo.component';
 import { HouseKeepingListComponent } from './house-keeping-list/house-keeping-list.component';
 import { AuthGuard } from '../shared/shared/auth.guard';
+import { SendMoneyComponent } from './send-money/send-money.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import { UsersComponent } from './users/users.component';
 
 export const childRoutes: Routes = [
     
 {
-        path: 'pages',
-        component: PagesComponent,canActivate: [AuthGuard],
+  // 
+        path: 'pages',canActivate: [AuthGuard],
+        component: PagesComponent,
         children: [
             { path: '', redirectTo: 'index', pathMatch: 'full' },
             { path: 'index', loadChildren: './index/index.module#IndexModule' },
@@ -39,15 +43,29 @@ export const childRoutes: Routes = [
                 path:'employee-list',
                 component:EmployeesListComponent
               },
+              {
+                path:'send-money',
+                component:SendMoneyComponent
+              },
+              {
+                path:'new-user',
+                component:NewUserComponent
+              },
 
 
-               {
-          path:'add-employee',
-          component:AddEmployeesComponent
-        },
+
+        //        {
+        //   path:'add-employee',
+        //   component:AddEmployeesComponent
+        // },
         {
             path:"payment-list",component:PaymentListComponent
           },
+
+          {
+            path:"user-list",component:UsersComponent
+          },
+       
        
           {
            path:"add-payment",component:AddPaymentsComponent
