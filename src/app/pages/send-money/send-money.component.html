@@ -1,0 +1,161 @@
+
+
+<div class="conatiner " >
+
+  <div class="col-md-8 " >
+    <card cardTitle='Add New Payment' isCollapse="true">
+   
+
+<form type="multipart/form-data"  [formGroup]="createForm" (ngSubmit)="addPayment(createForm.value)" >
+  <div class="row">
+  <div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Payee First Name </label>
+    <input type="text"  class="form-control-a-alternative" placeholder="firstname" >
+  
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Payee Last Name </label>
+    <input type="text"  class="form-control-a-alternative" placeholder="lastname">
+  
+  </div>
+</div>
+<div class="col-sm-4"  >
+  <div class="form-group " >
+    <label for="name" >Payee Account Number 
+       </label>
+   
+       <input type="text"  class="form-control-a-alternative" placeholder="account number" >
+
+
+  </div>
+</div>
+
+
+<div class="col-sm-4"  >
+<div class="form-group " >
+  <label for="name" >Bank Province 
+</label>
+ 
+  
+<input type="text"  class="form-control-a-alternative"  placeholder="province">
+
+</div>
+</div>
+
+
+
+
+
+
+  <div class="col-sm-3">
+<div class="form-group " >
+
+   
+  <label for="gender">Bank City </label>
+  <input type="text"  class="form-control-a-alternative"  placeholder="city">
+</div>
+</div>
+
+
+  <div class="col-sm-3">
+<div class="form-group " >
+  
+  <label for="idnumber"> Bank Name </label>
+  <input type="text"  class="form-control-a-alternative" placeholder="name">
+</div>
+</div>
+
+
+<div class="col-sm-3">
+  <div class="form-group " >
+    <label for="idnumber"> Branch Name </label>
+    <input type="text"  class="form-control-a-alternative"  placeholder=" branch name">
+
+  </div>
+  </div>
+
+
+
+
+
+  <div class="col-sm-3">
+<div class="form-group " >
+
+   
+  <label for="gender"> Amount </label>
+  <input type="text"  class="form-control-a-alternative"  placeholder="enter in figures">
+
+</div>
+</div>
+
+
+
+
+
+<div class="col-sm-3">
+  <div class="form-group " >
+  
+    <label for="phone">Transaction Pin</label>
+    <input type="text"  class="form-control-a-alternative" placeholder="enter pin">
+  </div>
+  </div>
+
+
+
+
+
+
+</div>
+<div *ngIf="infoList[0].account_status=='Frozen'" >
+<button type="button" class="btn btn-success" (click) ="sendMoney()" style="width: 50%;text-align: center;">
+  <span class="glyphicon glyphicon-ok"> Transfer Money </span>
+</button>
+</div>
+<div *ngIf="infoList[0].account_status!='Frozen'" >
+    <button type="button" type="submit" class="btn btn-success"  style="width: 50%;text-align: center;">
+      <span class="glyphicon glyphicon-ok"> Transfer Money </span>
+    </button>
+  </div>
+</form>
+</card>
+</div>
+
+
+
+
+</div>
+
+<button
+  style="margin: 50px; padding: 10px;display: none;"
+  type="button"
+  class="btn btn-primary"
+  (click)="openPopup()">
+</button>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">System Message <i class="fa fa-exclamation fa-2x text-danger"></i></h4>
+      </div>
+      <div class="modal-body">
+        <p style="font-weight:bold;font-size: large;">The user's account is currently Frozen,inactive or dorminant</p>
+        <p style="font-size: large;">For help,please visit us at our branch :<i class="fa fa-home text-warning"></i>Los Angeles </p>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

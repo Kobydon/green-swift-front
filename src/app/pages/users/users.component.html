@@ -1,0 +1,43 @@
+
+<div class="container col-md-8 ">
+  
+  <card cardTitle='Client List' isCollapse="true" style="text-align: left;">
+  
+  <table class="table " style="width:80%; " id="myTable" >
+  <thead>
+    <tr>
+     <th>Firstname</th>
+     <th>Lastname</th>
+     <th>Phone</th>
+     <th>Account_number</th>
+     <th>Address</th>
+     <th>Balance</th>
+     <th>Status </th>
+     <th>Action</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let item of clientList">
+      <td> {{item.firstname}}</td>
+      <td>{{item.lastname}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.account_number}}</td>
+      <td>{{item.address}}</td>
+      <td>${{item.balance}}</td>
+      <td>{{item.status}}</td>
+      <td><i class="fa fa-edit text-info"></i><i class="fa fa-trash text-danger"></i>  <a routerLink="/guest/view-details" class="btn btn-info ">View</a></td>
+    </tr>
+    
+  </tbody>
+  
+  </table>
+  </card>
+  <!-- <script>
+    $(document).ready( function () {
+      $('#myTable').DataTable();
+  } );
+  </script> -->
+  </div>
+  
+  
