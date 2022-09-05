@@ -4,14 +4,13 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build --base-href ./",
     "build:prod": "ng build --prod --base-href ./",
     "build:ci": "ng build --prod --base-href ./",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -25,8 +24,6 @@
     "@angular/platform-browser-dynamic": "^7.2.10",
     "@angular/router": "^7.2.10",
     "angular-froala-wysiwyg": "^2.9.3",
-    "express": "^4.17.1",
-    "path": "^0.12.7",
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
@@ -55,9 +52,8 @@
     "tslib": "^1.14.1",
     "underscore": "^1.13.4",
     "zone.js": "~0.8.26",
-    "@angular/cli": "^13.1.2",
-    "@angular/compiler-cli": "^7.2.10",
-    "typescript": "~3.2.2"
+    "@angular/cli": "^7.3.6",
+    "@angular/compiler-cli": "^13.1.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
@@ -68,7 +64,6 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
-    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
@@ -84,6 +79,6 @@
   },
   "engines": {
     "node": "14.17.6",
-    "npm": "6.14.15"
+    "npm": "8.5.5"
   }
 }
