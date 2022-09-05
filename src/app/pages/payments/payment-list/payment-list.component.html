@@ -1,0 +1,123 @@
+
+<div class="container col-md-8 ">
+  
+  <card cardTitle='Payment List' isCollapse="true" style="text-align: left;">
+
+    <select name="" id="">
+      <option value="recent">Recent</option>
+      <option value="all">Old</option>
+    
+
+    </select>
+  
+  <table class="table " style="width:80%; " id="myTable" >
+  <thead>
+    <tr >
+     <th>Name</th>
+     <th>Method</th>
+     <th>Amount</th>
+     <th>Room</th>
+     <th>Action</th>
+    
+     <!-- <th>Checkout Date</th> -->
+     
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let item of paymentList">
+      <td> {{item.name}}</td>
+      <td>{{item.method}}</td>
+      <td>{{item.amount}}</td>
+      <td>{{item.room}}</td>
+      <!-- <td>4:30pm,Tuesday <i class="fa fa-arrow-right" style="color: lightgreen;">check out</i></td> -->
+      <td><i class="fa fa-edit  text-info"></i><i class="fa fa-trash  text-danger"></i><i class="fa fa-print fa-2x  text-success"data-toggle="modal" data-target="#myModal"
+         (click)="find(item.id)"></i>  </td>
+    </tr>
+   
+  </tbody>
+  
+  </table>
+  </card>
+
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+             <h4 class="modal-title" style="font-size: medium;">Kobydon Hotel LTD</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body" >
+     
+            <card cardTitle='Payment Receipt' isCollapse="true"   >
+              <div id="pdfTable" #pdfTable style="text-align: center;">
+              <h3 style="font-smooth: bold;">Hotel Ghana limited</h3>
+             -  -  -  -  -  -  -  -   -  -  -  -  -  -  -  -  -  -  -  -  - - - -  -  -   
+             <br> 
+            <!-- <tr  *ngFor="let item of payList"  > -->
+           <p><Label >Name:</Label> &emsp; <strong> {{payList[0].name}}</strong></p>
+      
+           <p> <Label>Address :</Label> &emsp; <strong> {{payList[0].address}}</strong></p>
+   
+          
+           -  -  -  -  -  -  -  -   -  -  -  -  -  -  -  -  -  -  -  -  - - - -  -  - 
+           <br>
+           <p> <Label>Payment Method :</Label> &emsp; <strong> {{payList[0].method}}</strong></p>
+           <p> <Label>Amount:</Label> &emsp; <strong>{{payList[0].amount +".00"}}</strong></p>
+           <p> <Label>Discount:</Label> &emsp; <strong> {{payList[0].discount +"%"}}</strong></p>
+           <p> <Label>Total:</Label> &emsp; <strong>{{payList[0].amount +".00"}}</strong></p>
+           <br>
+
+           -  -  -  -  -  -  -  -   -  -  -  -  -  -  -  -  -  -  -  -  - - - -  -  - 
+           <br>
+           <p> <Label>Room :</Label> &emsp; <strong> {{payList[0].room}}</strong></p>
+           <p> <Label>Day(s) :</Label> &emsp; <strong> {{payList[0].duration}}</strong></p>
+          
+           <br>
+           <!-- <p> <Label>Address:</Label> &emsp; <strong> Teshie</strong></p>
+          
+           <br>
+          -->
+ 
+           <p> <Label>Status:</Label> &emsp; <strong> {{payList[0].status}}</strong></p>
+           -  -  -  -  -  -  -  -   -  -  -  -  -  -  -  -  -  -  -  -  - - - -  -  - 
+           <br>
+         
+           <p> <Label>PaymentDate :</Label> &emsp;  <strong> {{payList[0].payment_date}}</strong></p>
+<!--        
+        <br>
+           <p > <Label>Checkout Date :</Label> &emsp; <strong> Jan 22,2022</strong></p>
+        -->
+          
+
+
+        </div>
+        <button class="btn btn-primary" (click)="downloadAsPDF()">Print</button>
+    </card>
+</div>
+
+
+      
+          
+          <!-- Modal footer -->
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div> -->
+          
+        </div>
+      </div>
+    </div>
+  <!-- <script>
+    $(document).ready( function () {
+      $('#myTable').DataTable();
+  } );
+  </script> -->
+  </div>
+  
+  

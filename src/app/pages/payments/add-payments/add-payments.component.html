@@ -1,0 +1,220 @@
+
+
+
+
+<div class="conatiner " >
+
+  <div class="col-md-8 " >
+    <card cardTitle='Add New Payment' isCollapse="true">
+   
+
+<form type="multipart/form-data"  [formGroup]="createForm" (ngSubmit)="addPayment(createForm.value)" >
+  <div class="row">
+  <div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Guest  Name </label>
+    <tr  *ngFor="let guest of guestList">
+    <select formControlName="name" id=""    (click)="get_guest_detail()">
+      <option value="" hidden selected>select a guest</option>
+      <option  value="{{guest.first_name +' '+ guest.lastname}}"
+   >{{guest.first_name +" "+ guest.lastname}}</option>
+    </select>
+  </tr>
+  </div>
+</div>
+
+<div class="col-sm-4"  *ngIf="createForm.value.discount<1">
+  <div class="form-group " >
+    <label for="name" >Amount <strong style="background-color:lightblue;color: black;">
+      #auto generated</strong> </label><br>
+   
+    
+    <input   *ngFor="let room of roomForList" formControlName="Amount" type="text" [value]="room.base_price *createForm.value.duration "
+      style="width : 100%; " class="form-control-a-alternative">
+
+
+  </div>
+</div>
+
+
+<div class="col-sm-4"  *ngIf="createForm.value.discount>1">
+<div class="form-group " >
+  <label for="name" >Amount <strong style="background-color:lightblue;color: black;">
+    #auto generated</strong> </label><br>
+ 
+  
+ 
+  <input   *ngFor="let room of roomForList" formControlName="Amount"  type="text" [value]="room.base_price *createForm.value.duration - 
+    room.base_price *createForm.value.duration*createForm.value.discount/100" style="width : 100%; " class="form-control-a-alternative" >
+
+</div>
+</div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-3">
+<div class="form-group " >
+
+   
+  <label for="gender">Floor </label>
+  <select formControlName="floor" id="">
+    <option value="" hidden selected>select a floor</option>
+    <option value="1 ">floor 1 </option>
+    <option value="2">floor 2</option>
+    <option value="3">floor 3 </option>
+    <option value="4 ">floor 4 </option>
+    <option value="5">floor 5</option>
+    <option value="6">floor 6 </option>
+    <option value="7 ">floor 7 </option>
+    <option value="8">floor 8</option>
+    <option value=" 9">floor 9 </option>
+    <option value=" 10">floor 10 </option>
+    <!-- <option value="old">floor 2</option> -->
+   
+   
+   
+</select>
+</div>
+</div>
+
+
+  <div class="col-sm-3">
+<div class="form-group " >
+  
+  <label for="idnumber"> Duration </label>
+  <select id="idType" formControlName="duration"  style="width: 100%; border-radius: 5%;">
+    <option value="" hidden selected>select duration</option>
+    <option value="1">1 day</option>
+    <option value="2"> 2 days </option>
+    <option value="3">3 days</option>
+    <option value="4"> 4 days </option>
+    <option value="5"> 5 days </option>
+    <option value="7">1 week </option>
+    <option value="14">2 weeks </option>
+    <!-- <option value="old">floor 2</option> -->
+   
+   
+   
+</select>
+</div>
+</div>
+
+
+<div class="col-sm-3">
+  <div class="form-group " >
+  
+    <label for="phone">Method </label>
+    <select id="idType" formControlName="method"  style="width: 100%; border-radius: 5%;">
+      <option value="" hidden selected> payment method</option>
+      <option value="cash ">Cash </option>
+      <option value="visa ">Visa </option>  
+      <option value="cheque ">Cheque </option>  
+      <!-- <option value="old">floor 2</option> -->
+     
+     
+     
+  </select>
+  </div>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-sm-3">
+<div class="form-group " >
+
+   
+  <label for="gender">Select Room </label>
+  <select id="idType" (click)="getroom_for()" formControlName="room_type" style="width: 100%; border-radius: 5%;">
+    <option value="" hidden selected>select room</option>
+    <option *ngFor="let room of roomList"  value="{{room.room_number}}">{{room.room_number}}</option>
+ 
+   
+   
+</select>
+</div>
+</div>
+
+
+
+
+
+<div class="col-sm-3">
+  <div class="form-group " >
+  
+    <label for="phone">Payment Date</label>
+    <input type="date"formControlName="payment_date"  class="form-control-a-alternative" >
+  </div>
+  </div>
+
+
+
+  <div class="col-sm-3">
+    <div class="form-group " >
+    
+      <label for="phone">checkin date  <strong style="background-color:lightblue;color: black;">
+        #auto</strong></label>
+      <input type="date" formControlName="check_in_date"  *ngFor="let item of  guestInfo" class="form-control-a-alternative" 
+      value="{{item.checkin_date}}">
+    </div>
+    </div>
+  
+
+
+    <div class="col-sm-3">
+      <div class="form-group " >
+      
+        <label for="phone">checkout Date <strong style="background-color:lightblue;color: black;">
+          #auto </strong></label>
+        <input type="date"  *ngFor="let item of  guestInfo" formControlName="check_out_date"  class="form-control-a-alternative" 
+        value="{{item.checkout_date}}" >
+      </div>
+      </div>
+
+
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="phone">Address <strong style="background-color:lightblue;color: black;">
+            #auto </strong></label>
+          <input type="text" *ngFor="let item of guestInfo" class="form-control-a-alternative" formControlName="äddress" value="{{item.address}}">
+        </div>
+      </div>
+       
+<div class="col-sm-3" >
+  <div class="form-group " >
+  
+    <label for="phone">Discount </label>
+    <select id="idType" formControlName="discount"  style="width: 100%; border-radius: 5%;">
+      <option value="" hidden selected> Apply Discount</option>
+      <option value="0">0%</option>
+      <option value="10">10%</option>
+      <option value="20 ">20% </option>  
+      <option value="30 ">30% </option>  
+      <option value="40 ">40% </option>  
+      <option value="50 ">50% </option>  
+      <!-- <option value="old">floor 2</option> -->
+     
+     
+     
+  </select>
+  </div>
+  </div>
+</div>
+
+
+    <button type="submit" class="btn btn-success" style="width: 50%;text-align: center;">
+      <span class="glyphicon glyphicon-ok"> Add Payment </span>
+    </button>
+</form>
+</card>
+</div>
+
+
+
+
+</div>

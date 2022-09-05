@@ -1,6 +1,8 @@
 import {Component, Input, Output, EventEmitter, OnInit, HostListener, AfterViewInit} from '@angular/core';
 import {menuService} from '../../services/menu.service';
 import {GlobalService} from '../../services/global.service';
+import { ConditionalExpr } from '@angular/compiler';
+
 
 @Component({
   selector: 'sidebar',
@@ -18,11 +20,33 @@ export class SidebarComponent implements OnInit, AfterViewInit {
               public _globalService: GlobalService) {
   }
 
+
+
+ 
+  
+  
   ngOnInit() {
     this.menuInfo = this._menuService.putSidebarJson();
     this._sidebarToggle();
     this._menuService.selectItem(this.menuInfo); /* ----->初始化判断路由isActive状态  未完成  待优化 */
     this._isSelectItem(this.menuInfo);
+    
+   let dropdown = document.getElementsByClassName(" btn-trasnparent");
+   let i:any;
+ 
+ for (i = 0; i < dropdown.length; i++) {
+   dropdown[i].addEventListener("click", function() {
+   this.classList.toggle("active");
+   var dropdownContent = this.nextElementSibling;
+   if (dropdownContent.style.display === "block") {
+   dropdownContent.style.display = "none";
+   } else {
+   dropdownContent.style.display = "block";
+   }
+   });
+ }
+
+   
   }
 
   public _sidebarToggle() {

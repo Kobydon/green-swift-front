@@ -1,0 +1,165 @@
+<div class="pages-wrap" >
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand"   routerLink="/pages/index">Dashboard </a>
+      </div>
+
+      <div class="collapse-menu" (click)="_sidebarToggle()">
+        <!-- <i class="fa fa-navicon fa-fw" [ngClass]="{'toggle-on':sidebarToggle,'toggle-off':!sidebarToggle}"></i> -->
+        <i class="fa fa-dedent fa-fw text-info" *ngIf="sidebarToggle"></i>
+        <i class="fa fa-indent fa-fw text-warning" *ngIf="!sidebarToggle"></i>
+      </div>
+    
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink="/inventory/purchase-request" class="btn">Purchasing</a></li>
+          <li><a  routerLink="/inventory/stock-usage" class="btn">Inventory</a></li>
+          <li><a routerLink="/inventory/account-receivable" class="btn">Accounts Receivable</a></li>
+          <li><a routerLink="/inventory/account-payable" class="btn">Accounts Payable</a></li>
+          <li><a routerLink="/inventory/account-general" class="btn">General Ledger</a></li>
+          <li><a href="#login" class="btn">Reports</a></li>
+          <li><a routerLink="/settings/account-families" class="btn">Settings</a></li>
+            
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pages-body">
+
+
+
+
+
+
+<div class="pages-sider" [ngClass]="{'side-collapsed':!sidebarToggle}">
+  <span class="sidebar-top-line"></span>
+
+   <div class="side-menu">
+    <!-- <div class="brand-name"> --> 
+        <!-- <H1>Kev</H1> -->
+    <!-- </div> -->
+    <ul>
+      
+     <br><br><br><br>
+     <div *ngIf="router.url == '/inventory/purchase-request' || router.url == '/inventory/purchase-order'
+     || router.url == '/inventory/receive-order'  || router.url == '/inventory/return-request' 
+     || router.url == '/inventory/add-purchase-request' " >
+
+      <a class="btn btn-trasnparent" style="font-weight: bold; font-size: medium;"  ><i class="fa fa-money fa-fw">&nbsp;</i>  <span>Purchasing &nbsp;</span>
+          <i class="fa fa-caret-down"  ></i>
+        </a>
+
+        <div class="dropdown-container" id="dropdown" >
+          <a style="font-size: small;" routerLink="/inventory/purchase-request" class="btn "  >Purchasing Requests</a>
+            <a style="font-size: small;" class="btn " routerLink="/inventory/purchase-order" >Purchasing Orders</a>
+            <a  style="font-size: small;"  routerLink="/inventory/receive-order" class="btn" >Receiving Orders</a>
+            <a  style="font-size: small;"  routerLink="/inventory/return-request" class="btn" >Return Request</a>
+            
+        
+         </div>
+        
+</div>
+    
+  
+<div *ngIf="router.url === '/inventory/account-receivable'"   >
+        
+          <a  style="font-size: medium;font-weight: bold; "  (click)="click()" class="btn btn-trasnparent"  ><i class="fa fa-s15 " style="color: lightgreen;">&nbsp;</i>Account-Receivable &nbsp;
+            <i class="fa fa-caret-down"  ></i>
+          </a>
+          <div class="dropdown-container">
+            <a style="font-size: small;" class="btn" routerLink="/pages/room-status"><i class="fa fa-check-circle " style="color: lightcoral;" >&nbsp;</i>AR Accounts</a>
+            <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-check-circle " style="color: lightyellow;">&nbsp;</i>AR Postings</a>
+            <a style="font-size: small;" class="btn" routerLink="/pages/room-status"><i class="fa fa-check-circle " style="color: lightcoral;" >&nbsp;</i>Send Reminder Email</a>
+            <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-check-circle " style="color: lightyellow;">&nbsp;</i>Generated Reminders</a>
+            
+            
+  
+          </div>
+          </div>
+
+
+
+          <div *ngIf="router.url === '/inventory/account-payable'"   >
+        
+            <a  style="font-size: medium;font-weight: bold; "  (click)="click()" class="btn btn-trasnparent"  ><i class="fa fa-s15 " style="color: lightgreen;">&nbsp;</i>Account-Payable &nbsp;
+              <i class="fa fa-caret-down"  ></i>
+            </a>
+            <div class="dropdown-container">
+              <a style="font-size: small;" class="btn" routerLink="/pages/room-status"><i class="fa fa-check-circle " style="color: lightcoral;" >&nbsp;</i>Manual Receiving</a>
+              <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-check-circle " style="color: lightyellow;">&nbsp;</i>Inventory Receiving</a>
+              <a style="font-size: small;" class="btn" routerLink="/pages/room-status"><i class="fa fa-check-circle " style="color: lightcoral;" >&nbsp;</i>Pay to Vendor</a>
+              <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-check-circle " style="color: lightyellow;">&nbsp;</i>Vendor Payments</a>
+              <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-check-circle " style="color: lightyellow;">&nbsp;</i>Safe Box</a>
+              
+              
+    
+            </div>
+            </div>
+
+
+          <div *ngIf="router.url === '/inventory/account-general'"   >
+        
+            <a  class="btn btn-trasnparent" style="font-size: medium;font-weight: bold; " ><i class="fa fa-sign-out " style="color: white;">&nbsp;</i>General Ledger &nbsp;
+              <i class="fa fa-caret-down"  ></i>
+            </a>
+            <div class="dropdown-container">
+              <a style="font-size: small;" class="btn" routerLink="/pages/guest-list"><i class="fa fa-toggle-right " style="color: lightcoral;" >&nbsp;</i>Journal Voucher</a>
+              <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-calendar " style="color: lightyellow;">&nbsp;</i>Import Journal Voucher(s)</a>
+              <a style="font-size: small;" class="btn" routerLink="/pages/guest-list"><i class="fa fa-toggle-right " style="color: lightcoral;" >&nbsp;</i>Monthly Budget</a>
+              <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-calendar " style="color: lightyellow;">&nbsp;</i>Reccurring Journal Voucher</a>
+              
+    
+            </div>
+          </div>
+
+
+          <!--inventory-->
+          <div *ngIf="router.url ==='/inventory/stock-usage'" >
+          
+          <a class="btn btn-trasnparent "  ><i class="fa fa-home fa-fw " style="color: lightgoldenrodyellow;">&nbsp;</i><span>Inventory &nbsp;</span>
+            <i class="fa fa-caret-down"   ></i>
+            
+            </a>    
+            
+           <div class="dropdown-container"  >
+             <a routerLink="/inventory/purchase-request" style="font-size: small; " class="btn" ><i class="fa fa-exchange " style="color: lightblue;">&nbsp;</i>Store Transfers</a>
+             <a  style="font-size: small;"  class="btn" routerLink="/inventory/stock-usage"><i class="fa fa-tachometer " style="color: lightblue;">&nbsp;</i>Store Usages</a>
+             <a   style="font-size: small;" class="btn"><i class="fa fa-hand-shake " style="color: lightgreen;">&nbsp;</i>Store Settlements</a>
+             <a style="font-size: small;" class="btn"><i class="fa fa-plus " style="color: white;">&nbsp;</i>Add Store Settlements</a>
+             <a style="font-size: small;" class="btn"><i class="fa fa-money " style="color: white;">&nbsp;</i>Submit/Unsubmit</a>
+             <a style="font-size: small;" class="btn"><i class="fa fa-money " style="color: white;">&nbsp;</i>Bulk print usages/transfer</a>
+  
+           </div>
+         </div>
+
+        
+    </ul>
+    
+  </div>
+</div>
+
+ 
+
+<div class="pages-content" >
+  
+  <router-outlet #outlet = "outlet"></router-outlet>
+ 
+    
+ 
+
+
+</div>
+
+
+
+
+</div>
+
+</div>

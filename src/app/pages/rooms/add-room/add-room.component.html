@@ -1,0 +1,183 @@
+
+
+
+
+<div class="conatiner " >
+
+  <div class="col-md-8 " >
+    <card cardTitle='Add New Room' isCollapse="true">
+   
+
+<form type="multipart/form-data"  [formGroup]="createForm" (ngSubmit)="addRoom(createForm.value)"  >
+  <div class="row">
+  <div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Room  Number </label>
+    <input type="number"  style="width : 100%; " formControlName="room_number" class="form-control-a-alternative"  value="1" >
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group " >
+
+   
+    <label for="gender">Room Type </label>
+   
+    <select formControlName="room_type" >
+      <option value="" hidden selected>select room type</option>
+      <option  *ngFor="let i of roomTypeList" value="{{i.room_type}}">{{i.room_type}}</option>
+   
+    </select>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-3">
+<div class="form-group " >
+
+   
+  <label for="gender">Floor </label>
+  <select id="idType"style="width: 100%; border-radius: 5%;" formControlName="floor">
+    <option value="" hidden selected>seect floor</option>
+    <option value=" 1 ">floor 1 </option>
+    <option value="2">floor 2</option>
+    <option value="3">floor 3 </option>
+    <option value="4">floor 4 </option>
+    <option value="5">floor 5</option>
+    <option value="6">floor 6 </option>
+    <option value="7 ">floor 7 </option>
+    <option value="8">floor 8</option>
+    <option value="9">floor 9 </option>
+    <option value="10">floor 10 </option>
+    <!-- <option value="old">floor 2</option> -->
+   
+   
+   
+</select>
+</div>
+</div>
+
+
+  <div class="col-sm-3">
+<div class="form-group " >
+  
+  <label for="idnumber"> Duration </label>
+  <select id="idType" formControlName="duration" >
+    <option value="" hidden selected>select duration</option>
+    <option value="3">3 hrs </option>
+    <option value="6  ">6 hrs </option>
+    <option value="12">12 hrs</option>
+    <option value="24"> 24 hrs </option>
+    <!-- <option value="old">floor 2</option> -->
+   
+   
+   
+</select>
+</div>
+</div>
+
+
+<div class="col-sm-3">
+  <div class="form-group " >
+  
+  
+    <label for="nights">Reserved</label>
+    <select formControlName="reserved" id="" >
+      <option value="" hidden selected>reserved or not</option>
+      <option value="0">------</option> 
+     <option value="yes">yes</option>
+     <option value="no">no</option>
+   
+   
+   </select>
+     
+
+  </div>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <!-- <div class="col-sm-3">
+<div class="form-group " >
+
+   
+  <label for="gender">Select Room </label>
+  <select id="idType" name="selectroom" >
+    <option value="kingsize">room 1</option>
+    <option value="normall">room 2</option>
+    <option value="kingsize">room 3</option>
+    <option value="normall">room 4</option>
+    <option value="kingsize">room 5</option>
+    <option value="normall">room 6</option>
+    <option value="kingsize">room 7</option>
+    <option value="normall">room 8</option>
+   
+</select>
+</div>
+</div> -->
+
+
+  <div class="col-sm-3">
+<div class="form-group " >
+  
+  <label for="nights">Session</label>
+   <select formControlName="session" id="" >
+    <option value="" hidden selected>seect section</option>
+    <option value="1">------</option>
+    <option value="day">day</option>
+    <option value="night">night</option>
+    <option value="24hrs">24hrs</option>
+  
+  </select>
+</div>
+</div>
+
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="nights">Picture one</label>
+      <input type="file" class="form-contorl-x-alternative" formControlName="image_one"(change)= "handleUpload($event)">
+      
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="nights">Picture two</label>
+      <input type="file" class="form-contorl-x-alternative"formControlName="image_two"(change)= "handleUpload($event)">
+      
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="nights">Picture three</label>
+      <input type="file" class="form-contorl-x-alternative"formControlName="image_three"(change)= "handleUpload($event)">
+      
+   
+  </div>
+  </div>
+</div>
+
+
+
+ 
+    <button type="submit" class="btn btn-success" style="width: 50%;text-align: center;">
+      <span class="glyphicon glyphicon-ok"> Add Room </span>
+    </button>
+</form>
+</card>
+</div>
+
+
+
+
+</div>

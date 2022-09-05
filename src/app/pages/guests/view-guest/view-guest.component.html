@@ -1,0 +1,40 @@
+
+  
+  <div class="col-md-8">
+    <card cardTitle='Guest details' isCollapse="true">
+     <button style="float: right;" class="btn btn-warning"> <i class="fa fa-calendar" >Checkout</i></button>
+    
+      <tr *ngFor="let item of guestList">
+       
+           <Label>Name:</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;
+           <strong> {{item.firstname +"  "+  item.lastname}}</strong>
+           <br><br>
+           <p > <Label>Gender :</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+             <strong > {{item.gender}}</strong></p>
+           <br>
+           <p> <Label>ID type :</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;<strong> {{item.id_type}}</strong></p>
+
+           <br>
+           <p> <Label>ID Number :</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong> {{item.id_number}}</strong></p>
+           <br>
+           <p> <Label>telephone:</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+             <strong> {{item.phone}}</strong></p>
+           <br>
+           <p> <Label>Adress :</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+             <strong>{{item.address}}</strong></p>
+           <br>
+           <p> <Label>Room Number:</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong>{{item.room_number}}</strong></p>
+           <br>
+           <div class="col-sm-3">
+           <p> <Label>Checkin Date :</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br> <strong>{{item.arrival_date}}</strong></p>
+          </div>
+          <div class="col-sm-3" style="float: right;">
+           <p > <Label>Checkout Date :</Label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <br><strong> {{item.checkout_date}}</strong></p>
+       
+             </div>
+        
+        </tr>
+       
+    </card>
+</div>
+

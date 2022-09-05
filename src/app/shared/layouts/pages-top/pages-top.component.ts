@@ -1,5 +1,8 @@
 import {AfterViewInit, Component, Input} from '@angular/core';
-import {GlobalService} from '../../services/global.service';
+import { Router } from '@angular/router';
+
+import { userService } from '../../../services/user-service.service';
+import { GlobalService } from '../../services/global.service';
 
 @Component({
   selector: 'pages-top',
@@ -8,16 +11,21 @@ import {GlobalService} from '../../services/global.service';
 })
 export class PagesTopComponent implements AfterViewInit {
   avatarImgSrc: string = 'assets/images/avatar.jpg';
-  userName: string = 'Bknds';
-  userPost: string = 'FrontEnd';
+  userName: string = 'kevin';
+  userPost: string = 'Kevs Hotel Managent';
 
 
   sidebarToggle: boolean = true;
   tip = {ring: true, email: true};
 
-  constructor(private _globalService: GlobalService) {
+  constructor(private _globalService: GlobalService,private userService:userService,private router:Router) {
   }
 
+  logout(){
+    this.userService.logout();
+    
+
+  }
   public _sidebarToggle() {
     /* this._globalService.sidebarToggle$.subscribe(sidebarToggle => {
       this.sidebarToggle = sidebarToggle;

@@ -1,7 +1,7 @@
 <div class="pages-top">
   <div class="avatar-wrap">
     <div class="avatar">
-      <img src="{{avatarImgSrc}}" alt="avatar">
+      <img src="{{avatarImgSrc}}" alt="avatar" style="border-radius: 50%;">
     </div>
     <div class="user-info-wrap">
       <span class="user-name" title="{{userName}}">{{userName}}</span>
@@ -31,7 +31,14 @@
     <div class="msg-entrance email">
       <span class="fa fa-envelope fa-fw"></span>
       <span class="badge" *ngIf="tip.email"></span>
+   
+    </div>
+
+    <div class="msg-entrance email" >
+      
+  <button class="btn btn-danger" type="button" (click)="logout()"  ><i class="fa fa-sign-out"></i></button>
     </div>
   </div>
+
 
 </div>
