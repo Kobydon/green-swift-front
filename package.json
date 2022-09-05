@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build"
   },
   "private": true,
   "dependencies": {
@@ -55,19 +55,20 @@
     "tslib": "^1.14.1",
     "underscore": "^1.13.4",
     "zone.js": "~0.8.26",
-    "@angular/cli": "^7.3.6",
+    "@angular/cli": "^13.1.2",
     "@angular/compiler-cli": "^7.2.10",
     "typescript": "~3.2.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "^7.3.6",
+    "@angular/cli": "^13.1.2",
     "@angular/compiler-cli": "^7.2.10",
     "@angular/language-service": "^7.2.10",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
@@ -85,6 +86,4 @@
     "node": "14.17.6",
     "npm": "6.14.15"
   }
-
-
 }
