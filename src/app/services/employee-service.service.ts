@@ -42,7 +42,7 @@ getclients():Observable<any[]>{
 
 
 getroom_number():Observable<any[]>{
-  return this.http.get<any[]>(this.clientUrl+ '/room/get_room_number');
+  return this.http.get<any[]>(this.clientUrl+ '/room/get_room_numbers');
 }
 
   
