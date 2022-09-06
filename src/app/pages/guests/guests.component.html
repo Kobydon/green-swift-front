@@ -1,0 +1,51 @@
+
+<div class="container col-md-8 ">
+  
+<card cardTitle='Guest List' isCollapse="true" style="text-align: left;">
+
+<table class="table " style="width:80%; " id="myTable" >
+<thead>
+  <tr>
+   <th>Name</th>
+   <th>Gender</th>
+   <th>Phone</th>
+   <th>Address</th>
+   <th>Room</th>
+   <th>Number of Nights</th>
+   <th>Checkout Date</th>
+   <th>Guest Checkout At</th>
+   
+  </tr>
+</thead>
+
+<tbody>
+  <tr *ngFor="let item of guestList">
+    <td> {{item.name}}</td>
+    <td>{{item.gender}}</td>
+    <td>+{{item.phone}}</td>
+    <td>{{item.address}}</td>
+    <td>{{item.room_number}}</td>
+    <td>1</td>
+    
+    <td>{{item.checkout_date}} <i class="fa fa-arrow-right" style="color: lightgreen;">check out</i></td>
+
+    <td *ngIf="item.has_checkout !=0">{{item.has_checkout}} <i  routerLink="/pages/edit-guest/{{item.id}}" class="fa fa-edit text-info"></i><i class="fa fa-trash text-danger" (click)
+      ="deleteGuest(item.id)"></i> 
+      
+      <a routerLink="/pages/view-details/{{item.id}}" class="btn btn-info ">View</a></td>
+    <td *ngIf="item.has_checkout<1">Not Yet  <i  routerLink="/pages/edit-guest/{{item.id}}" class="fa fa-edit text-info"></i><i class="fa fa-trash text-danger" (click)
+      ="deleteGuest(item.id)"></i> 
+      <a routerLink="/pages/view-details/{{item.id}}" class="btn btn-info ">View</a></td>
+  </tr>
+
+</tbody>
+
+</table>
+</card>
+<!-- <script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script> -->
+</div>
+

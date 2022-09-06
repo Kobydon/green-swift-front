@@ -34,7 +34,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     ProgressBarComponent,
     SwitchComponent,
     PellEditorComponent,
-    AlertComponent,
+    AlertComponent, 
     WeatherComponent,
     ProfileComponent
   ],

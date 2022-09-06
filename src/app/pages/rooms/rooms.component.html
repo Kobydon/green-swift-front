@@ -1,0 +1,81 @@
+
+
+<div class="container text-center col-md-8">
+  <card cardTitle='Room List' isCollapse="true" style="text-align: left;" >
+    <select name="" id="">
+      <option value="kingsize">King Size</option>
+      <option value="Double-bed">Double-bed</option>
+      <option value="Executive">Executive</option>
+
+    </select>
+<table class="table " style="width:80%;" >
+<thead>
+  <tr>
+   <th>Number</th>
+ 
+   <th> Type</th>
+   <th> Floor</th>
+   <th>reserved</th>
+   <th>Occupancy State</th>
+   <td>Status</td>
+   <th>Action</th>
+   
+  </tr>
+</thead>
+
+<tbody>
+  <tr *ngFor ="let item of roomList ">
+    <td> {{item.room_number}}</td>
+    <td>{{item.room_type}}</td>
+    <td>{{item.floor}}</td>
+    <td>{{item.reserved}}</td>
+    <td>{{item.occupancy_state}}</td>
+    <td class="text-info">{{item.status}}</td>
+    <!-- <td>4:30pm,Tuesday <i class="fa fa-arrow-right" style="color: lightgreen;">check out</i></td> -->
+    <td><i class="fa fa-edit"></i><i class="fa fa-trash" (click)="deleteRoom(item.id)"></i></td>
+  </tr>
+
+</tbody>
+
+</table>
+</card>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4><i class="fa fa-bed text-primary"></i> <span class="text-danger" style="font-size: 30px;">Add room</span></h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group text-center">
+            <label for="name">Name </label>
+            <input type="text"  style="width: 100%; " class="form-control" id="psw" placeholder="room name">
+          </div>
+
+          <div class="form-group text-center" >
+            <label for="floor">floor </label>
+            <input type="text" style="width: 100%; " class="form-control" id="psw" placeholder="floor 1">
+          </div>
+          <div class="form-group text-center">
+            <label for="number"> size</label>
+            <input type="number" style="width: 100%; " class="form-control" id="number"  value="1">
+          </div>
+         
+            <button type="submit" class="btn btn-success">
+              <span class="glyphicon glyphicon-ok">Create </span>
+            </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+          <span class="glyphicon glyphicon-remove"></span> Cancel
+        </button>
+        <p>Need <a href="#">help?</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+

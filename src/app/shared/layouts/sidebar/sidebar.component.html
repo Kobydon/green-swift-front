@@ -1,4 +1,134 @@
 <div class="pages-sider" [ngClass]="{'side-collapsed':!sidebarToggle}">
   <span class="sidebar-top-line"></span>
-  <du-menu [menuInfo]="menuInfo"></du-menu>
+
+   <div class="side-menu">
+    <!-- <div class="brand-name"> --> 
+              <!-- <H1>Kev</H1> -->
+    <!-- </div> -->
+    <ul>
+      <a class="btn "  routerLink="/dashboard"><i class="fa fa-tachometer text-primar">&nbsp;</i><span>Dashboard</span></a>
+     
+      <a class="btn btn-trasnparent"  ><i class="fa fa-bed  " style="color: yellow;">&nbsp;</i><span>Rooms &nbsp;</span>
+          <i class="fa fa-caret-down"  ></i>
+        </a>
+        <div class="dropdown-container" id="dropdown">
+          <a style="font-size: small;" routerLink="/pages/room-list" class="btn "  ><i class="fa fa-list " style="color: lightblue;">&nbsp;</i>Room List 
+            
+          </a>
+          <a style="font-size: small;" class="btn " routerLink="/pages/add-room-type" ><i class="fa fa-sign-in " style="color: lightblue;">&nbsp;</i>Room Type </a>
+          <a  style="font-size: small;"  routerLink="/pages/add-room" class="btn" ><i class="fa fa-plus " style="color: lightblue;">&nbsp;</i>New Room</a>
+          <a style="font-size: small;" class="btn btn-trasnparent "  ><i class="fa fa-sign-in " style="color: lightblue;">&nbsp;</i>Room Reservation&nbsp;
+          <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container">
+            <a style="font-size: small;" class="btn" ><i class="fa fa-list " style="color: lightcoral;" >&nbsp;</i>Reservation List</a>
+            <a  style="font-size: small;"  class="btn btn-trasnparent" ><i class="fa fa-plus " style="color: lightyellow;">&nbsp;</i>New Reservation &nbsp;
+             <i class="fa fa-caret-down"></i>
+            </a>
+
+            <div class="dropdown-container">
+              <a style="font-size: small;" class="btn" routerLink="/pages/room-reserve"><i class="fa fa-user " style="color: lightcoral;" >&nbsp;</i>Individual</a>
+              <a style="font-size: small;" class="btn" routerLink="/pages/group-reserve"><i class="fa fa-users " style="color: lightcoral;" >&nbsp;</i>Group</a>
+            </div>
+            
+  
+          </div>
+          <a  style="font-size: small;"  class="btn btn-trasnparent" ><i class="fa fa-s15 " style="color: lightgreen;">&nbsp;</i>Room Status &nbsp;
+            <i class="fa fa-caret-down"  ></i>
+          </a>
+          <div class="dropdown-container">
+            <a style="font-size: small;" class="btn" routerLink="/pages/room-status"><i class="fa fa-check-circle " style="color: lightcoral;" >&nbsp;</i>Available</a>
+            <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-check-circle " style="color: lightyellow;">&nbsp;</i>Occupied</a>
+            
+  
+          </div>
+          <a style="font-size: small;" class="btn btn-trasnparent" ><i class="fa fa-sign-out " style="color: white;">&nbsp;</i>Checkouts &nbsp;
+            <i class="fa fa-caret-down"  ></i>
+          </a>
+          <div class="dropdown-container">
+            <a style="font-size: small;" class="btn" routerLink="/pages/guest-list"><i class="fa fa-toggle-right " style="color: lightcoral;" >&nbsp;</i>Today</a>
+            <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-calendar " style="color: lightyellow;">&nbsp;</i>All</a>
+            
+  
+          </div>
+
+        </div>
+        <a class="btn  btn-trasnparent" (click)="click()" ><i class="fa fa-users " style="color: lightblue;">&nbsp;</i><span>Guests &nbsp;</span>
+          <i class="fa fa-caret-down"   ></i>
+        </a>
+
+        <div class="dropdown-container">
+          <a style="font-size: small;" class="btn" routerLink="/pages/guest-list"><i class="fa fa-users " style="color: lightblue;">&nbsp;</i>Guest List</a>
+          <a  style="font-size: small;"  class="btn" routerLink="/pages/add-guest"><i class="fa fa-plus " style="color: lightblue;">&nbsp;</i>New Guest</a>
+          <a  style="font-size: small;"><i class="fa fa-files " style="color: lightgreen;">&nbsp;</i>Archieve</a>
+          <a style="font-size: small;"><i class="fa fa-calendar " style="color: white;">&nbsp;</i>Outdated</a>
+
+        </div>
+        <a class="btn  btn-trasnparent" (click)="click()"  ><i class="fa fa-money fa-fw " style="color: lih;">&nbsp;</i><span>Payments &nbsp;</span>
+          <i class="fa fa-caret-down"   ></i>
+        </a>
+ 
+        <div class="dropdown-container">
+          <a style="font-size: small;" class="btn" routerLink="/pages/payment-list"><i class="fa fa-list " style="color: lightblue;">&nbsp;</i>Payment List</a>
+          <a  style="font-size: small;"  class="btn" routerLink="/pages/add-payment"><i class="fa fa-plus " style="color: lightblue;">&nbsp;</i>New Payment</a>
+          <a  style="font-size: small;"><i class="fa fa-exchange " style="color: lightgreen;">&nbsp;</i>Incoming</a>
+          <a style="font-size: small;"><i class="fa fa-calendar " style="color: white;">&nbsp;</i>Outdated</a>
+        </div>
+        <a class="btn btn-trasnparent" ><i class="fa fa-list fa-fw " style="color: lih;">&nbsp;</i><span>Todo &nbsp;</span>
+        <i class="fa fa fa-caret-down"></i>
+        </a>
+        <div class="dropdown-container">
+          <a style="font-size: small;" class="btn"  routerLink="/pages/todo-list"><i class="fa fa-list " style="color: lightblue;">&nbsp;</i>Todo List</a>
+          <a  style="font-size: small;"  class="btn" routerLink="/pages/add-todo"><i class="fa fa-plus " style="color: lightgreen;">&nbsp;</i>New todo</a>
+          <a  style="font-size: small;" class="btn
+          " routerLink="/pages/house-keeping"><i class="fa fa-building " style="color: lightgreen;">&nbsp;</i>House keeping</a>
+          <a style="font-size: small;"><i class="fa fa-ban " style="color: white;">&nbsp;</i>Out of Order</a>
+        </div>
+
+        <a class="btn btn-trasnparent "  ><i class="fa fa-users fa-fw " style="color: lightsalmon;">&nbsp;</i><span>Employees &nbsp;</span>
+         <i class="fa fa-caret-down"   ></i>
+         
+         </a>    
+         
+        <div class="dropdown-container">
+          <a style="font-size: small;" class="btn" routerLink="/pages/employee-list"><i class="fa fa-users " style="color: lightblue;">&nbsp;</i>Employee List</a>
+          <a  style="font-size: small;"  class="btn" routerLink="/pages/add-employee"><i class="fa fa-plus " style="color: lightblue;">&nbsp;</i>New Eployee</a>
+          <a  style="font-size: small;"><i class="fa fa-edit " style="color: lightgreen;">&nbsp;</i>Attendance</a>
+          <a style="font-size: small;"><i class="fa fa-money " style="color: white;">&nbsp;</i>Payment</a>
+        </div>
+       
+        <!--inventory-->
+
+
+        <a class="btn btn-trasnparent "  ><i class="fa fa-users fa-fw " style="color: lightgoldenrodyellow;">&nbsp;</i><span>Inventory &nbsp;</span>
+          <i class="fa fa-caret-down"   ></i>
+          
+          </a>    
+          
+         <div class="dropdown-container">
+           <a routerLink="/inventory/purchase-request" style="font-size: small; " class="btn" ><i class="fa fa-exchange " style="color: lightblue;">&nbsp;</i>Store Transfers</a>
+           <a  style="font-size: small;"  class="btn" routerLink="/pages/add-employee"><i class="fa fa-tachometer " style="color: lightblue;">&nbsp;</i>Store Usages</a>
+           <a   style="font-size: small;" class="btn"><i class="fa fa-hand-shake " style="color: lightgreen;">&nbsp;</i>Store Settlements</a>
+           <a style="font-size: small;" class="btn"><i class="fa fa-plus " style="color: white;">&nbsp;</i>Add Store Settlements</a>
+           <a style="font-size: small;" class="btn"><i class="fa fa-money " style="color: white;">&nbsp;</i>Submit/Unsubmit</a>
+           <a style="font-size: small;" class="btn"><i class="fa fa-money " style="color: white;">&nbsp;</i>Bulk print usages/transfer</a>
+
+         </div>
+         <!------>
+
+        <a class="btn "  routerLink="/students"><i class="fa fa-envelope fa-fw " style="color: lightgreen;">&nbsp;</i><span>Mails</span></a>
+        <a class="btn "  routerLink="/students"><i class="fa fa-briefcase fa-fw " style="color: lightgray;">&nbsp;</i><span>Archieves</span></a>
+        <a class="btn "  routerLink="/students"><i class="fa fa-cogs fa-fw " style="color: lightgray;">&nbsp;</i><span>Settings</span></a>
+        <a class="btn "  routerLink="/pages/profile"><i class="fa fa-user fa-fw " style="color: lih;">&nbsp;</i><span>Profile</span></a>
+        <!-- <a class="btn"><i="faChalkboardTeacher">&nbsp;</i><span>Teachers</span></a>
+        <a class="btn"><i="faSchool">&nbsp;</i><span>Schools</span></a>
+        <a class="btn"><i="faMoneyBillAlt">&nbsp;</i><span>Income</span></a>
+        <a class="btn"><i="faQuestion">&nbsp;</i><span>Help</span></a>
+        <a class="btn"><i="faCog">&nbsp;</i><span>Settings</span></a> -->
+
+        
+    </ul>
+    
+    
+</div>
 </div>

@@ -28,7 +28,8 @@
               "node_modules/animate.css/animate.css",
               "src/assets/iconfonts/iconfont.css",
               "src/app/shared/_styles.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+             "node_modules/ngx-toastr/toastr.css"              
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -101,7 +102,8 @@
               "node_modules/animate.css/animate.css",
               "src/assets/iconfonts/iconfont.css",
               "src/app/shared/_styles.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "assets": [
               "src/assets",

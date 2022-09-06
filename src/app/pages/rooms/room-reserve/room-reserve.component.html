@@ -1,0 +1,333 @@
+
+
+
+
+<div class="conatiner " >
+
+  <div class="col-md-8 " >
+    <card cardTitle='Guest Details' isCollapse="true">
+   
+
+<form role="form " >
+  <div class="row">
+  <div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Guest Name <button class="btn btn-info">
+      <i class="fa fa-plus" routerLink="/pages/add-guest"></i> </button>
+    </label>
+ 
+      <select formControlName="name" id="" >
+        <option value="" hidden selected>select a guest</option>
+        <!-- <option  value="{{guest.name +' '+ guest.lastname}}"
+     >{{guest.name +" "+ guest.lastname}}</option> -->
+      </select>
+ 
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Reservation Type</label><br>
+    <select formControlName="type" id="">
+      <option value="" hidden selected>select reservation type</option>
+      <option value="reservation type">Daily</option>
+    </select>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+<div class="form-group " >
+
+   
+  <label for="country">Reservation Country</label>
+  <input type="text" formControlName="country" class="form-control-a-alternative"  placeholder="country" >
+
+</div>
+</div>
+
+
+  <div class="col-sm-4">
+<div class="form-group " >
+   <label for="language">Guest Language</label>
+  <input type="text" formControlName="language "  class="form-control-a-alternative" placeholder="language" >
+  </div>
+</div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+<div class="form-group " >
+
+   
+  <label for="Username">Purpose Of Stay</label>
+ <select formControlName="Purpose" >
+  <option value="" hidden selected>purpose of stay</option>
+  <option value="leisure">Leisure</option>
+  <option value="Business">Business</option>
+  <option value="other">Other </option>
+ </select>
+
+</div>
+</div>
+
+
+  <div class="col-sm-4">
+<div class="form-group " >
+  <div class="form-group " >
+    <label for="">Nights</label>
+   <input type="number" formControlName="  nights "   value="1" class="form-control-a-alternative"  >
+   </div>
+  
+  
+  </div>
+</div>
+</div>
+
+
+
+
+</form>
+</card>
+
+
+<card cardTitle='Dates' isCollapse="true">
+  <form role="form " >
+
+    <div class="row">
+      <div class="col-sm-4">
+    <div class="form-group " >
+    
+       
+      <label for="Username">Arrival Date</label>
+      <input type="date" class="form-control-a-alternative" formControlName="arrival" >
+    
+    </div>
+    </div>
+    
+    
+      <div class="col-sm-4">
+    <div class="form-group " >
+       <label for="">Departure Date</label>
+      <input type="date" class="form-control-a-alternative" formControlName="departure" >
+      
+      </div>
+    </div>
+    
+    </div>
+    
+    
+    
+<div class="row">
+  <div class="col-sm-4">
+<div class="form-group " >
+
+   
+  <label for="checkin">Checkin Time</label><br>
+  <input type="time" class="form-control-a-alternative" formControlName="checkin" >
+
+</div>
+</div>
+
+
+  <div class="col-sm-4">
+<div class="form-group " >
+  <label for="checkin">Checkout Time</label>
+  <input type="time" class="form-control-a-alternative" formControlName="checkout"  >
+  </div>
+</div>
+</div>
+
+
+    </form>
+
+</card>
+
+
+<card cardTitle='Rate Plan' isCollapse="true">
+
+  <form role="form " >
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group " >
+  
+     
+    <label for="children">Number of Adults</label>
+    <input type="number" class="form-contol-a-alternative" value="1" formControlName="adult">
+                                
+  
+  </div>
+  </div>
+  
+  
+    <div class="col-sm-4">
+  <div class="form-group " >
+    <label for="children">Number of children</label>
+    <input type="number" class="form-contol-a-alternative" value="1" formControlName="children">
+    </div>
+  </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group " >
+  
+    <label for="">Room Type</label>
+    
+    <select formControlName="type" >
+      <option value="" hidden selected>select room type</option>
+      <option  *ngFor="let i of roomTypeList" value="{{i.room_type}}">{{i.room_type}}</option>
+   
+    </select>
+   
+  
+  </div>
+  </div>
+  
+  
+    <div class="col-sm-4">
+  <div class="form-group " >
+    <label for="">Room Number</label>
+    <p style="background-color:aqua; color: red;" *ngIf="roomList.length < 1">All Booked</p>
+   <select formControlName="room_number" id="" *ngIf="roomList.length>0">
+
+    <option value="" hidden selected>select room number</option>
+    
+    
+    <!-- <option value="1"  *ngIf ="  router.url !='/pages/add-guest'">1</option> -->
+    <option *ngFor="let item of roomList" value="{{item.room_number}}">{{item.room_number}}</option>
+    
+    
+   </select>
+  </div>
+  </div>
+  
+  
+  </div>
+
+  
+  
+  
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group " >
+  
+    <label for="rate">Rate </label>
+     <input type="text" formControlName="rate" class="form-control-a-alternative" placeholder="rate">
+   
+  </div>
+  </div>
+  
+  
+    <div class="col-sm-4">
+  <div class="form-group " >
+    <label for="rate amount">Rate Amount</label>
+    <input type="text" class="form-control-a-alternative" formControlName="amount" placeholder="amount">
+  </div>
+  </div>
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group " >
+  
+    <label for="Discount type">Discount Type </label>
+    <select  id="" formControlName="discount_type" >
+      <option value="" hidden selected>select Discount Type</option>
+      <option value="percentage">Percentage</option>
+      <option value="Amount">Amount</option>
+    </select>
+  
+   
+  </div>
+  </div>
+  
+  
+    <div class="col-sm-4">
+  <div class="form-group " >
+    <label for="remark">Discount Value</label>
+    <input type="text"formControlName="discount_value"  class="form-control-a-alternative" placeholder="value">
+  </div>
+  </div>
+  
+  
+  </div>
+  
+   
+  
+  <div class="row">
+    <div class="col-sm-4">
+  <div class="form-group " >
+  
+    <label for="payment type">Payment Method </label>
+    <select name="method" id="" formControlName="payment_type" >
+      <option value="" hidden selected>selelct payment type</option>
+      <option value="Visa">Visa</option>
+      <option value="Cash">Cash</option>
+      <option value="Momo">Momo</option>
+    </select>
+  
+   
+  </div>
+  </div>
+  
+  
+    <div class="col-sm-4">
+  <div class="form-group " >
+    <label for="status">Status</label>
+    <select name="method" id="" formControlName="status" >
+      <option value="" hidden selected>Set Status</option>
+      <option value="confirmed">Confirmed</option>
+      <option value="pending">Pending</option>
+     
+    </select>
+  </div>
+  </div>
+  
+  
+  </div>
+  
+  
+  <card cardTitle='Amount Summary' isCollapse="true">
+  
+         
+    <label for="Rate">Rate:</label>
+    <label for="Fixed Charges">Fixed Charges :</label><br>
+    <label for="add-on">Add-On Packages :</label><br>
+    <label for="Net Rate"> Net Rate :</label><br>
+    <!-- <label for="Total Nights">Total Nights :</label><br> -->
+    <label for="Total Stay"> Total Stay :</label>
+  
+</card>
+  
+      <button type="submit" class="btn btn-success" style="width: 50%;text-align: center;">
+        <span class="glyphicon glyphicon-ok"> Save Reservation </span>
+      </button>
+  </form>
+
+</card>
+</div>
+
+
+
+</div>

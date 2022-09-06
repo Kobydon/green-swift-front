@@ -1,23 +1,23 @@
-<div class="row">
+<div class="row" style="position: fixed;">
   <div class="col-md-3 animated fadeIn">
     <div class="card card-block tip-card">
       <div class="tip-msg">
-        <h3>Users</h3>
-        <span>118 / 251</span>
+        <h3>Rooms</h3>
+        <span>{{roomList.length}}</span>
       </div>
       <button class="tip-ico tip-ico-primary">
-        <i class="fa fa-group fa-fw"></i>
+        <i routerLink="/room/room-list" class="fa fa-bed fa-fw"></i>
       </button>
     </div>
   </div>
   <div class="col-md-3 animated fadeIn">
     <div class="card card-block tip-card">
       <div class="tip-msg">
-        <h3>Messages</h3>
-        <span>2 messages</span>
+        <h3>Guests</h3>
+      <span>{{guestList.length}}</span>
       </div>
       <button class="tip-ico tip-ico-info">
-        <i class="fa fa-comments fa-fw"></i>
+        <i   routerLink="/guest/guest-list" class="fa fa-users fa-fw"></i>
       </button>
     </div>
   </div>
@@ -43,12 +43,99 @@
       </button>
     </div>
   </div>
+  
   <div class="col-md-8">
-    <card cardTitle='Bar Chart' isCollapse="true">
-      <div echarts [options]="AnimationBarOption" [loading]="showloading" theme="dark"></div>
+    <card cardTitle='Hotel Stats' isCollapse="true">
+    
+      <div id="rooms"  class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-3">
+            <p> <i class="fa fa-bed fa-fw "> Rooms</i> </p>
+            </div>
+            <div class="col-sm-3 text-danger " style="float: right;">
+                 <p> <i class="fa fa-eye fa-fw" > view </i></p>
+                </div>
+                </div>
+
+          <table class="table " style="width:100%;" >
+            <tr >
+           <th>Total Rooms</th> 
+           
+           <td >{{roomList.length}}</td>
+          </tr>
+          <tr>
+            <th>Occupied Rooms</th>
+            <td class="text-info">{{count.length}}</td>
+          </tr>
+          <tr>
+            <th>Available Rooms</th> 
+            <td class="text-success">{{roomList.length - count.length}}</td>
+          </tr>
+           
+          <tr>
+            <th>Available Regular Rooms</th>
+            
+            <td class="text-warning">0</td>
+          </tr>
+
+          <tr>
+            <th>Available Double-bed Rooms</th>
+            <td class="text-info">2</td>
+          </tr>
+        
+       
+          </table>
+        </div>
+        
+        <div class="col-sm-6" >
+          <div class="row">
+          <div class="col-sm-3">
+          <p> <i class="fa fa-users fa-fw "> Guests</i> </p>
+          </div>
+          <div class="col-sm-3 " style="float: right;">
+               <p> <i class="fa fa-eye fa-fw text-danger" routerLink="/room/room-status" > view </i></p>
+              </div>
+              </div>
+          <table class="table " style="width:100%; " >
+            <tr>
+           <th>Number of Guests</th> 
+           
+           <td>{{guestList.length}}</td>
+          </tr>
+          <tr>
+            <th>Male(s)</th>
+            <td class="text-primary">{{maleList.length}}</td>
+          </tr>
+          <tr>
+            <th>Female(s)</th> 
+            <td class="text-success">{{femaleList.length}}</td>
+          </tr>
+           
+          <tr>
+            <th>Checking out today</th>
+            
+            <td class="text-warning">{{chekoutList.length}}</td>
+          </tr>
+
+          <tr>
+            <th>Unspecified Checking outs</th>
+            <td class="text-info">2</td>
+          </tr>
+        
+       
+          </table>
+        </div>
+        
+          
+
+      </div>
+
+      
+      
     </card>
   </div>
-  <div class="col-md-4">
+ <div class="col-md-4">
     <card cardTitle="Todo List" isCollapse="true">
       <du-todolist></du-todolist>
     </card>

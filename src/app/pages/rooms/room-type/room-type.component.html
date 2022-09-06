@@ -1,0 +1,139 @@
+
+
+
+
+<div class="conatiner " >
+
+  <div class="col-md-8 " >
+    <card cardTitle='Add New Type' isCollapse="true">
+   
+  <form  enctype="multipart/form-data"  [formGroup]="createForm" (ngSubmit)="addType(createForm.value)" >
+        
+  <div class="row">
+  <div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Room  Type </label>
+    <input type="text"   class="form-control-x-alternative" 
+    formControlName="room_type" placeholder="  name">
+
+   
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group ">
+    <label for="name" >Base Occupancy </label><br>
+    <input type="number" formControlName="base_occupancy" class="form-control-x-alternative" id="base" value="1">
+   
+  </div>
+</div>
+
+
+</div><br>
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+<div class="form-group " >
+
+   
+  <label for="gender">Kids Occupancy </label>
+ 
+  <select formControlName="kids_occupancy" >
+    <option value="0">------</option>
+    <option value="1">yes</option>
+    <option value="">no</option>
+  </select>
+</div>
+</div>
+
+
+  <div class="col-sm-4">
+<div class="form-group " >
+  
+  <label for="exprice"> Extra Bed Price </label>
+ <input type="text" class="form-control-x-alternamtive" formControlName="extral_bed_price">
+</div>
+</div>
+
+
+<div class="col-sm-4">
+  <div class="form-group " >
+  
+    <label for="phone">Base Price </label>
+   <input type="text" formControlName="base_price" class="form-control-x-alternative" id="base" value="Gh 20.00">
+  </div>
+  </div>
+</div><br>
+
+
+
+
+
+  
+<div class="form-group " >
+
+   
+  <label for="Aminities">Aminities</label><br>
+   <input type="text" class="form-contorl-x-alternative" formControlName="amenities"
+      placeholder="restaurant,pool,bar">
+ 
+</div><br>
+
+
+  
+<div class="form-group " >
+
+   
+  <label for="Aminities" >Description</label>
+  <textarea class="form-control-x-alternative" id="Address" formControlName="description" placeholder="" rows="5"
+ style="border-radius: 5%; width: 100%;"></textarea>
+</div><br>
+
+
+<div class="row">
+  <div class="col-sm-4">
+<div class="form-group " >
+
+   
+  <label for="Aminities" >Image 1</label>
+  <input type="file" formControlName="image_one" (change)= "handleUpload($event)">
+</div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group " >
+  
+     
+    <label for="Aminities" >Image 2</label>
+    <input type="file" formControlName="image_two" (change)= "handleUpload($event)">
+  </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group " >
+    
+       
+      <label for="Aminities" >Image 3</label>
+      <input type="file" formControlName="image_three" (change)= "handleUpload($event)">
+    </div>
+    </div>
+</div>
+
+
+
+ 
+    <button type="submit" class="btn btn-success" style="width: 50%;text-align: center;">
+      <span class="glyphicon glyphicon-ok"> Add Room </span>
+    </button>
+</form>
+
+</card>
+
+</div>
+
+
+
+
+</div>

@@ -1,0 +1,158 @@
+@import '../../shared/theme/conf.scss';
+
+
+.pages-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: lightgrey;
+}
+.pages-body {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  .pages-content {
+      padding: 15px;
+      flex: 1;
+      background: transparent;
+      border-left: 1px solid $border-color;
+      border-top: 1px solid $border-color;
+      color: $fonts-color;
+      overflow-x: hidden;
+  
+  }
+}.pages-sider {
+    width: 250px;
+    
+    background: lightslategray;
+   
+    overflow-x: hidden;
+    overflow-y: scroll;
+    @include transition(all .5s);
+    position: relative;
+    border: none;
+    .sidebar-top-line {
+        display: block;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        border-top: 1px solid $border-color;
+    }
+}
+
+.fa-caret-down {
+
+    float: right;
+    padding-right: 8px;
+  }
+
+  .dropdown-container {
+    // display: none;
+    background: dimgray;
+
+    padding-left: 5px;
+    
+  }
+
+  
+
+.side-menu a{
+ 
+    font-size: 24px;
+    padding: 10px 40px;
+    color: white;
+    display: flex;
+    align-items: left;
+ 
+ }
+
+ .side-menu a span{
+ 
+    // font-size: 20px;
+    // padding: 10px 40px;
+    color: white;
+    
+    // display: flex;
+    
+ }
+
+ 
+ .side-menu a:hover{
+  
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+ }
+.side-collapsed {
+    width: 0;
+    /* .avatar-wrap {
+        padding: 15px 4px;
+        border-bottom: 1px solid transparent;
+    }
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 5px 2px;
+    }
+    .user-info-wrap {
+        transform: scale(0, 0);
+    } */
+}
+
+@media (max-width:1440px) {
+    .side-collapsed {
+        width: 0;
+    }
+}
+
+.collapse-menu {
+    left: 100px;
+}
+//@media (max-width:970px) {
+//    .pages-sider {
+//        width: 0;
+//    }
+//}
+.navbar{
+  position: fixed;
+  width: 100%;
+  height: 70px;
+
+background-color: lemonchiffon;
+  border: none;
+}
+
+
+.collapse-menu {
+  position: absolute;
+  top: 50%;
+  left: 250px;
+  transform: translate(0, -50%);
+  color: $sidebar-fonts-color;
+  font-size: 24px;
+  cursor: pointer;
+  @include center(40px, 40px);
+  @include transition(all .2s);
+  &:hover {
+      color: $primary;
+  }
+  .toggle-on {
+      transform: rotate(0);
+      @include transition(all .5s);
+  }
+  .toggle-off {
+      transform: rotate(-270deg);
+      @include transition(all .5s);
+  }
+}
+
+  .collapse-menu {
+      left: 100px;
+  }
+
+

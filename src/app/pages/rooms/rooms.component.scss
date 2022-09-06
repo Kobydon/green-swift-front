@@ -1,0 +1,28 @@
+.modal-header, h4, .close {
+    background-color: lightcyan;
+    color: white;
+
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-header, .modal-body {
+    padding: 40px 50px;
+  }
+
+  .modal-footer{
+    background-color: lightcyan;
+    color: white;
+  }
+
+  input[type=text], input[type=number] {
+    
+    padding: 15px 20px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5%;
+    width: 50%;
+    background-color: white;
+    color: black;
+    
+  }
